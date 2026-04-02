@@ -11,6 +11,14 @@ on:
         description: 'Enter the second input value'
         required: true
         default: 'World'
+      environment:
+        description: 'Choose environment (dev, staging, prod)'
+        required: true
+        default: 'dev'
+      action_type:
+        description: 'Choose action (build, test, deploy)'
+        required: true
+        default: 'build'
 
 jobs:
   demo-job:
