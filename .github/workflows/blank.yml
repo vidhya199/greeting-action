@@ -1,0 +1,27 @@
+name: Demo Workflow with Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      first_input:
+        description: 'Enter the first input value'
+        required: true
+        default: 'Hello'
+      second_input:
+        description: 'Enter the second input value'
+        required: true
+        default: 'World'
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print inputs
+        run: |
+          echo "First input: ${{ github.event.inputs.first_input }}"
+          echo "Second input: ${{ github.event.inputs.second_input }}"
+
+      - name: Use inputs in script
+        run: |
+          echo "Combining inputs..."
+          echo "${{ github.event.inputs.first_input }} ${{ github.event.inputs.second_input }}"
